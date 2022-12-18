@@ -15,12 +15,15 @@ DriveSelectorQmlViewStep::DriveSelectorQmlViewStep( QObject* parent )
 // get all drives present
 QList<QStorageInfo> drives = QStorageInfo::mountedVolumes();
 // put them in a list
-QVariantList driveList;
+// make empty list
+m_driveList = new QVariantList();
 for ( const QStorageInfo& drive : drives )
 {
-driveList.append(drive.rootPath());
+m_driveList.append(drive.rootPath());
 }
 Q_PROPERTY(QString selectedDrive READ selectedDrive WRITE setSelectedDrive NOTIFY selectedDriveChanged)
+// expose the list to QML
+
 }
 
 QString
