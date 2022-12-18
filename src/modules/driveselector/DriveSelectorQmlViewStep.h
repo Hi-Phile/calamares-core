@@ -12,6 +12,7 @@
 
 #include <QObject>
 #include "viewpages/QmlViewStep.h"
+#include "utils/PluginFactory.h"
 
 class DriveSelectorQmlViewStep : public Calamares::QmlViewStep
 {
@@ -33,5 +34,7 @@ public slots:
 private:
     QString m_selectedDrive;
 };
+
+CALAMARES_PLUGIN_FACTORY_DECLARATION( DriveSelectorQmlViewStepFactory )
 
 #endif // DRIVESELECTORQMLVIEWSTEP_H

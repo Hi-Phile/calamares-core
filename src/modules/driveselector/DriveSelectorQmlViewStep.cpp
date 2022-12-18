@@ -7,6 +7,7 @@
 #include <QList>
 #include <QStorageInfo>
 
+CALAMARES_PLUGIN_FACTORY_DEFINITION( DriveSelectorQmlViewStepFactory, registerPlugin< DriveSelectorQmlViewStep >(); )
 
 DriveSelectorQmlViewStep::DriveSelectorQmlViewStep( QObject* parent )
 : Calamares::QmlViewStep( parent )
