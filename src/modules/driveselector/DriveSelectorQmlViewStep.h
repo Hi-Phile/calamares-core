@@ -14,28 +14,19 @@
 #include "viewpages/QmlViewStep.h"
 #include "utils/PluginFactory.h"
 #include "DllMacro.h"
+#include "Config.h"
 
 class DriveSelectorQmlViewStep : public Calamares::QmlViewStep
 {
-Q_OBJECT
-Q_PROPERTY(QString selectedDrive READ selectedDrive WRITE setSelectedDrive NOTIFY selectedDriveChanged)
-
 public:
     explicit DriveSelectorQmlViewStep(QObject *parent = nullptr);
     // expose all drives to QML
     QVariantList m_driveList;
-
     QString selectedDrive() const;
     QString prettyName() const override;
 
-signals:
-    void selectedDriveChanged();
-
-public slots:
-    void setSelectedDrive(const QString& drive);
-
 private:
-    QString m_selectedDrive;
+    // idk
 };
 
 CALAMARES_PLUGIN_FACTORY_DECLARATION( DriveSelectorQmlViewStepFactory )

@@ -21,12 +21,12 @@ title: i18nc("@title:window", "Select Drive")
         text: DriveSelectorQmlViewStep.driveList
     }
     ComboBox {
-            model: driveList
-            textRole: "rootPath"
-            currentIndex: 1
-            onCurrentIndexChanged: {
-                // update the selectedDrive property when the user selects a different drive
-                DriveSelectorQmlViewStep.selectedDrive = model.get(currentIndex).rootPath
-            }
+        model: driveList
+        textRole: "rootPath"
+        currentIndex: 1
+        onCurrentIndexChanged: {
+            // update the selectedDrive property when the user selects a different drive
+            DriveSelectorQmlViewStep.selectedDrive = model.get(currentIndex).rootPath
         }
+    }
 }

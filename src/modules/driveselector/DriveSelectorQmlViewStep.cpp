@@ -6,6 +6,7 @@
 #include "JobQueue.h"
 #include <QList>
 #include <QStorageInfo>
+#include "Config.h"
 
 CALAMARES_PLUGIN_FACTORY_DEFINITION( DriveSelectorQmlViewStepFactory, registerPlugin< DriveSelectorQmlViewStep >(); )
 
@@ -15,11 +16,13 @@ DriveSelectorQmlViewStep::DriveSelectorQmlViewStep( QObject* parent )
 // get all drives present
 QList<QStorageInfo> drives = QStorageInfo::mountedVolumes();
 // put them in a list
-// make empty list
-m_driveList = new QVariantList();
+
+
+m_driveList = QVariantList();
 for ( const QStorageInfo& drive : drives )
 {
 m_driveList.append(drive.rootPath());
+emit driveListChanged();
 }
 Q_PROPERTY(QString selectedDrive READ selectedDrive WRITE setSelectedDrive NOTIFY selectedDriveChanged)
 // expose the list to QML
@@ -38,13 +41,4 @@ DriveSelectorQmlViewStep::selectedDrive() const
     return m_selectedDrive;
 }
 
-void
-DriveSelectorQmlViewStep::setSelectedDrive(const QString& drive)
-{
-    if (m_selectedDrive != drive) {
-        m_selectedDrive = drive;
-        emit selectedDriveChanged();
-    }
-    auto gs = Calamares::JobQueue::instance()->globalStorage();
-    gs->insert("selectedDrive", m_selectedDrive);
-}
+

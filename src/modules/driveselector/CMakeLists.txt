@@ -16,6 +16,7 @@ calamares_add_plugin(${MODULE_NAME}
     EXPORT_MACRO PLUGINDLLEXPORT_PRO
     SOURCES
         DriveSelectorQmlViewStep.cpp
+        Config.cpp
     RESOURCES
         DriveSelectorQmlViewStep.qrc
     LINK_PRIVATE_LIBRARIES
