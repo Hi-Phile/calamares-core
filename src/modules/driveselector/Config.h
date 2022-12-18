@@ -12,8 +12,6 @@
 
 #include "Job.h"
 
-#include "ThemeInfo.h"
-
 #include <QObject>
 
 class Config : public QObject
